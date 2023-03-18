@@ -76,6 +76,7 @@ A full list of all supported Helm values can be found <a href="https://artifacth
 Example `values.yaml` file:
 
 ```yaml
+---
 image:
   repository: ghcr.io/containeroo/cloudflare-operator
   tag: latest

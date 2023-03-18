@@ -6,58 +6,32 @@ weight: 10
 
 ## Architecture
 
-cloudflare-operator is designed to be the single source of truth for
-Cloudflare DNS records.
-
-It relies on the Kubernetes API to store the desired state of DNS records
-using Custom Resource Definitions (CRDs).
+cloudflare-operator is designed to serve as the single source of truth for Cloudflare DNS records.  
+It relies on the Kubernetes API to store the desired state of DNS records using Custom Resource Definitions (CRDs).
 
 ![cloudflare-operator architecture](/img/cloudflare-operator-architecture.svg)
 
-## Self-Healing
+## DNS Records
 
-Failed objects will be reconciled by the controller at the given interval.
+Cloudflare DNS records are specified using a CRD (`dnsrecords.cf.containeroo.ch`).  
+These records can be created manually, through a GitOps workflow, or automatically generated from Kubernetes Ingress resources.
 
-### Account
+The Kubernetes API serves as the "single source of truth" for all zones in the configured Cloudflare account.
 
-| Error                                                 | Interval |
-| :---------------------------------------------------- | :------- |
-| Referenced secret (`secretRef`) not found             | 30s      |
-| `apiKey` in referenced secret (`secretRef`) not found | 30s      |
-| Connection to Cloudflare                              | 30s      |
-| Fetching zones from Cloudflare                        | 30s      |
-| Fetching zones from `Zone` object                     | 30s      |
+For more information on creating and using DNS records, please refer to the [DNSRecords documentation](/docs/cloudflare-operator/dns_records).
 
-### Zone
+## IP Objects
 
-| Error                                                | Interval |
-| :--------------------------------------------------- | :------- |
-| `apiKey` in secret from `Account.secretRef` is empty | 5s       |
-| Fetching zones from Cloudflare                       | 30s      |
-| Fetching `DNSRecord` objects                         | 30s      |
-| Fetching DNS records from Cloudflare                 | 30s      |
+IP objects can be utilized to follow the "don't repeat yourself" (DRY) principle.
 
-### IP
+DNS records can be configured to use an IP object as the target content.  
+If the IP object is updated, all DNS records that use it will be updated automatically.
 
-| Error                                                       | Interval |
-| :---------------------------------------------------------- | :------- |
-| None of the provided IP sources return a valid IPv4 address | 60s      |
-| Fetching `DNSRecord` objects                                | 30s      |
+The effective IP can either be configured in the IP object, or it can be dynamically fetched from the internet.  
+This enables you to use cloudflare-operator as a dynamic DNS controller.
 
-### Ingress
+## Reconciliation
 
-| Error                        | Interval |
-| :--------------------------- | :------- |
-| Fetching `DNSRecord` objects | 30s      |
+Reconciliation is the process of ensuring that the state of the cluster aligns with the desired state.
 
-### DNSRecord
-
-| Error                                                     | Interval |
-| :-------------------------------------------------------- | :------- |
-| `apiKey` in secret from `Account.spec.secretRef` is empty | 5s       |
-| Fetching zones from Cloudflare                            | 30s      |
-| `Zone.name` in Cloudflare not found                       | 30s      |
-| `Zone` object not ready                                   | 5s       |
-| Fetching zones from Cloudflare                            | 30s      |
-| Fetching DNS records from Cloudflare                      | 30s      |
-| Referenced `IP` object (`spec.ipRef.name`) not found      | 30s      |
+This process also incorporates "self-healing" by retrying failed operations after a specified interval.

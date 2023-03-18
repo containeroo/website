@@ -6,22 +6,19 @@ description: "Monitor cloudflare-operator with Prometheus"
 
 ## Prerequisites
 
-- [Prometheus](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus) -
-  collects metrics from cloudflare-operator controllers and the Kubernetes API
-- [Grafana](https://github.com/grafana/helm-charts/tree/main/charts/grafana) -
-  displays cloudflare-operator stats
-- [kube-state-metrics](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-state-metrics) -
-  generates metrics about the state of the Kubernetes objects
+- [Prometheus](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus)
+- [Grafana](https://github.com/grafana/helm-charts/tree/main/charts/grafana)
+- [kube-state-metrics](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-state-metrics)
 
-The easiest way to deploy all necessary components is to use
+The easiest way to deploy all the necessary components is to use
 [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack).
 
 ## Install cloudflare-operator Grafana Dashboard
 
-Note that the cloudflare-operator exposes the `/metrics` endpoint on port `8080`.
-When using Prometheus Operator you need a `PodMonitor` object to configure scraping for the controller.
+Note that cloudflare-operator exposes the `/metrics` endpoint on port `8080`.
+When using Prometheus Operator, you need a `PodMonitor` object to configure scraping for the controller pod.
 
-Apply the `config/manifests/prometheus/monitor.yaml` containing the `PodMonitor` and create a ConfigMap with the cloudflare-operator dashboard:
+Apply the `PodMonitor` and create a ConfigMap with the cloudflare-operator dashboard:
 
 ```bash
 # Create a podmonitor
@@ -50,7 +47,9 @@ cloudflare_operator_ip_status
 cloudflare_operator_zone_status
 ```
 
-Alertmanager example:
+## Alerting
+
+The following alerting rule can be used to monitor DNS record failures:
 
 ```yaml
 groups:

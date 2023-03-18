@@ -15,7 +15,7 @@ The following prerequisites are required to complete this tutorial:
 
 {{% alert color="warning" %}}
 **Attention!** :warning:  
-Note that after a successful installation and configuration, `cloudflare-operator` will delete **ALL** DNS records in **EVERY ZONE** to which the API token has access!
+Note that after a successful installation and configuration, cloudflare-operator will delete **ALL** DNS records in **EVERY ZONE** to which the API token has access!
 It is therefore highly recommended to <a href="https://developers.cloudflare.com/dns/manage-dns-records/how-to/import-and-export/#export-records" target="blank">export your existing DNS records</a> first!
 {{% /alert %}}
 
@@ -55,7 +55,7 @@ spec:
 
 {{% alert color="warning" %}}
 **Attention!** :warning:  
-After this step, `cloudflare-operator` will delete **ALL** DNS records in **EVERY ZONE** to which the API token has access!
+After this step, cloudflare-operator will delete **ALL** DNS records in **EVERY ZONE** to which the API token has access!
 {{% /alert %}}
 
 Check if the account is ready:

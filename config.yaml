@@ -5,6 +5,7 @@ defaultContentLanguage: en
 defaultContentLanguageInSubdir: false
 enableMissingTranslationPlaceholders: true
 enableRobotsTXT: true
+enableEmoji: true
 enableGitInfo: true
 taxonomies:
   tag: tags

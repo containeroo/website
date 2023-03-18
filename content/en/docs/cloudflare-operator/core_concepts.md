@@ -11,7 +11,7 @@ It relies on the Kubernetes API to store the desired state of DNS records using 
 
 ![cloudflare-operator architecture](/img/cloudflare-operator-architecture.svg)
 
-## DNS Records
+## DNS records
 
 Cloudflare DNS records are specified using a CRD (`dnsrecords.cf.containeroo.ch`).  
 These records can be created manually, through a GitOps workflow, or automatically generated from Kubernetes Ingress resources.
@@ -20,7 +20,7 @@ The Kubernetes API serves as the "single source of truth" for all zones in the c
 
 For more information on creating and using DNS records, please refer to the [DNSRecords documentation](/docs/cloudflare-operator/dns_records).
 
-## IP Objects
+## IP objects
 
 IP objects can be utilized to follow the "don't repeat yourself" (DRY) principle.
 

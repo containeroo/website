@@ -13,7 +13,7 @@ description: "Monitor cloudflare-operator with Prometheus"
 The easiest way to deploy all the necessary components is to use
 [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack).
 
-## Install cloudflare-operator Grafana Dashboard
+## Install cloudflare-operator Grafana dashboard
 
 Note that cloudflare-operator exposes the `/metrics` endpoint on port `8080`.
 When using Prometheus Operator, you need a `PodMonitor` object to configure scraping for the controller pod.

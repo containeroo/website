@@ -1,0 +1,1237 @@
+---
+title: "API Reference"
+weight: 50
+---
+
+<p>Packages:</p>
+<ul class="simple">
+  <li>
+    <a href="#cf.containeroo.ch%2fv1beta1">cf.containeroo.ch/v1beta1</a>
+  </li>
+</ul>
+<h2 id="cf.containeroo.ch/v1beta1">cf.containeroo.ch/v1beta1</h2>
+<p>
+  Package v1beta2 contains API Schema definitions for the source v1beta2 API
+  group
+</p>
+Resource Types:
+<ul class="simple"></ul>
+<h3 id="cf.containeroo.ch/v1beta1.Account">Account</h3>
+<p>Account is the Schema for the accounts API</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>metadata</code><br />
+            <em>
+              <a
+                href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#objectmeta-v1-meta"
+              >
+                Kubernetes meta/v1.ObjectMeta
+              </a>
+            </em>
+          </td>
+          <td>
+            Refer to the Kubernetes API documentation for the fields of the
+            <code>metadata</code> field.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>spec</code><br />
+            <em>
+              <a href="#cf.containeroo.ch/v1beta1.AccountSpec"> AccountSpec </a>
+            </em>
+          </td>
+          <td>
+            <br />
+            <br />
+            <table>
+              <tr>
+                <td>
+                  <code>email</code><br />
+                  <em> string </em>
+                </td>
+                <td>
+                  <p>Email of the Cloudflare account</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>globalAPIKey</code><br />
+                  <em>
+                    <a
+                      href="#cf.containeroo.ch/v1beta1.AccountSpecGlobalAPIKey"
+                    >
+                      AccountSpecGlobalAPIKey
+                    </a>
+                  </em>
+                </td>
+                <td>
+                  <p>Global API key of the Cloudflare account</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>interval</code><br />
+                  <em>
+                    <a
+                      href="https://godoc.org/k8s.io/apimachinery/pkg/apis/meta/v1#Duration"
+                    >
+                      Kubernetes meta/v1.Duration
+                    </a>
+                  </em>
+                </td>
+                <td>
+                  <em>(Optional)</em>
+                  <p>Interval to check account status</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>managedZones</code><br />
+                  <em> []string </em>
+                </td>
+                <td>
+                  <em>(Optional)</em>
+                  <p>
+                    List of zone names that should be managed by
+                    cloudflare-operator
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>status</code><br />
+            <em>
+              <a href="#cf.containeroo.ch/v1beta1.AccountStatus">
+                AccountStatus
+              </a>
+            </em>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3 id="cf.containeroo.ch/v1beta1.AccountSpec">AccountSpec</h3>
+<p>
+  (<em>Appears on:</em>
+  <a href="#cf.containeroo.ch/v1beta1.Account">Account</a>)
+</p>
+<p>AccountSpec defines the desired state of Account</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>email</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <p>Email of the Cloudflare account</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>globalAPIKey</code><br />
+            <em>
+              <a href="#cf.containeroo.ch/v1beta1.AccountSpecGlobalAPIKey">
+                AccountSpecGlobalAPIKey
+              </a>
+            </em>
+          </td>
+          <td>
+            <p>Global API key of the Cloudflare account</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>interval</code><br />
+            <em>
+              <a
+                href="https://godoc.org/k8s.io/apimachinery/pkg/apis/meta/v1#Duration"
+              >
+                Kubernetes meta/v1.Duration
+              </a>
+            </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>Interval to check account status</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>managedZones</code><br />
+            <em> []string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              List of zone names that should be managed by cloudflare-operator
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3 id="cf.containeroo.ch/v1beta1.AccountSpecGlobalAPIKey">
+  AccountSpecGlobalAPIKey
+</h3>
+<p>
+  (<em>Appears on:</em>
+  <a href="#cf.containeroo.ch/v1beta1.AccountSpec">AccountSpec</a>)
+</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>secretRef</code><br />
+            <em>
+              <a
+                href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#secretreference-v1-core"
+              >
+                Kubernetes core/v1.SecretReference
+              </a>
+            </em>
+          </td>
+          <td>
+            <p>
+              Secret name containing the API key (key must be named
+              &ldquo;apiKey&rdquo;)
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3 id="cf.containeroo.ch/v1beta1.AccountStatus">AccountStatus</h3>
+<p>
+  (<em>Appears on:</em>
+  <a href="#cf.containeroo.ch/v1beta1.Account">Account</a>)
+</p>
+<p>AccountStatus defines the observed state of Account</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>conditions</code><br />
+            <em>
+              <a
+                href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#condition-v1-meta"
+              >
+                []Kubernetes meta/v1.Condition
+              </a>
+            </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              Conditions contains the different condition statuses for the
+              Account object.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>zones</code><br />
+            <em>
+              <a href="#cf.containeroo.ch/v1beta1.AccountStatusZones">
+                []AccountStatusZones
+              </a>
+            </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>Zones contains all the zones of the Account</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3 id="cf.containeroo.ch/v1beta1.AccountStatusZones">AccountStatusZones</h3>
+<p>
+  (<em>Appears on:</em>
+  <a href="#cf.containeroo.ch/v1beta1.AccountStatus">AccountStatus</a>)
+</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>name</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>Name of the zone</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>id</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>ID of the zone</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3 id="cf.containeroo.ch/v1beta1.DNSRecord">DNSRecord</h3>
+<p>DNSRecord is the Schema for the dnsrecords API</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>metadata</code><br />
+            <em>
+              <a
+                href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#objectmeta-v1-meta"
+              >
+                Kubernetes meta/v1.ObjectMeta
+              </a>
+            </em>
+          </td>
+          <td>
+            Refer to the Kubernetes API documentation for the fields of the
+            <code>metadata</code> field.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>spec</code><br />
+            <em>
+              <a href="#cf.containeroo.ch/v1beta1.DNSRecordSpec">
+                DNSRecordSpec
+              </a>
+            </em>
+          </td>
+          <td>
+            <br />
+            <br />
+            <table>
+              <tr>
+                <td>
+                  <code>name</code><br />
+                  <em> string </em>
+                </td>
+                <td>
+                  <p>DNS record name (e.g. example.com)</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>content</code><br />
+                  <em> string </em>
+                </td>
+                <td>
+                  <em>(Optional)</em>
+                  <p>DNS record content (e.g. 127.0.0.1)</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>ipRef</code><br />
+                  <em>
+                    <a href="#cf.containeroo.ch/v1beta1.DNSRecordSpecIPRef">
+                      DNSRecordSpecIPRef
+                    </a>
+                  </em>
+                </td>
+                <td>
+                  <em>(Optional)</em>
+                  <p>Reference to an IP object</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>type</code><br />
+                  <em> string </em>
+                </td>
+                <td>
+                  <em>(Optional)</em>
+                  <p>DNS record type</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>proxied</code><br />
+                  <em> bool </em>
+                </td>
+                <td>
+                  <em>(Optional)</em>
+                  <p>
+                    Whether the record is receiving the performance and security
+                    benefits of Cloudflare
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>ttl</code><br />
+                  <em> int </em>
+                </td>
+                <td>
+                  <em>(Optional)</em>
+                  <p>
+                    Time to live, in seconds, of the DNS record. Must be between
+                    60 and 86400, or 1 for &lsquo;automatic&rsquo; (e.g. 3600)
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>data</code><br />
+                  <em> map[string]string </em>
+                </td>
+                <td>
+                  <em>(Optional)</em>
+                  <p>
+                    Data holds arbitrary key-value pairs used for SRV and LOC
+                    records
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>priority</code><br />
+                  <em> uint16 </em>
+                </td>
+                <td>
+                  <em>(Optional)</em>
+                  <p>
+                    Required for MX, SRV and URI records; unused by other record
+                    types. Records with lower priorities are preferred.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>interval</code><br />
+                  <em>
+                    <a
+                      href="https://godoc.org/k8s.io/apimachinery/pkg/apis/meta/v1#Duration"
+                    >
+                      Kubernetes meta/v1.Duration
+                    </a>
+                  </em>
+                </td>
+                <td>
+                  <em>(Optional)</em>
+                  <p>Interval to check DNSRecord</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>status</code><br />
+            <em>
+              <a href="#cf.containeroo.ch/v1beta1.DNSRecordStatus">
+                DNSRecordStatus
+              </a>
+            </em>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3 id="cf.containeroo.ch/v1beta1.DNSRecordSpec">DNSRecordSpec</h3>
+<p>
+  (<em>Appears on:</em>
+  <a href="#cf.containeroo.ch/v1beta1.DNSRecord">DNSRecord</a>)
+</p>
+<p>DNSRecordSpec defines the desired state of DNSRecord</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>name</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <p>DNS record name (e.g. example.com)</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>content</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>DNS record content (e.g. 127.0.0.1)</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>ipRef</code><br />
+            <em>
+              <a href="#cf.containeroo.ch/v1beta1.DNSRecordSpecIPRef">
+                DNSRecordSpecIPRef
+              </a>
+            </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>Reference to an IP object</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>type</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>DNS record type</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>proxied</code><br />
+            <em> bool </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              Whether the record is receiving the performance and security
+              benefits of Cloudflare
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>ttl</code><br />
+            <em> int </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              Time to live, in seconds, of the DNS record. Must be between 60
+              and 86400, or 1 for &lsquo;automatic&rsquo; (e.g. 3600)
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>data</code><br />
+            <em> map[string]string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              Data holds arbitrary key-value pairs used for SRV and LOC records
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>priority</code><br />
+            <em> uint16 </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              Required for MX, SRV and URI records; unused by other record
+              types. Records with lower priorities are preferred.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>interval</code><br />
+            <em>
+              <a
+                href="https://godoc.org/k8s.io/apimachinery/pkg/apis/meta/v1#Duration"
+              >
+                Kubernetes meta/v1.Duration
+              </a>
+            </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>Interval to check DNSRecord</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3 id="cf.containeroo.ch/v1beta1.DNSRecordSpecIPRef">DNSRecordSpecIPRef</h3>
+<p>
+  (<em>Appears on:</em>
+  <a href="#cf.containeroo.ch/v1beta1.DNSRecordSpec">DNSRecordSpec</a>)
+</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>name</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>Name of the IP object</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3 id="cf.containeroo.ch/v1beta1.DNSRecordStatus">DNSRecordStatus</h3>
+<p>
+  (<em>Appears on:</em>
+  <a href="#cf.containeroo.ch/v1beta1.DNSRecord">DNSRecord</a>)
+</p>
+<p>DNSRecordStatus defines the observed state of DNSRecord</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>conditions</code><br />
+            <em>
+              <a
+                href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#condition-v1-meta"
+              >
+                []Kubernetes meta/v1.Condition
+              </a>
+            </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              Conditions contains the different condition statuses for the
+              DNSRecord object.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>recordID</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>Cloudflare DNS record ID</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3 id="cf.containeroo.ch/v1beta1.IP">IP</h3>
+<p>IP is the Schema for the ips API</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>metadata</code><br />
+            <em>
+              <a
+                href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#objectmeta-v1-meta"
+              >
+                Kubernetes meta/v1.ObjectMeta
+              </a>
+            </em>
+          </td>
+          <td>
+            Refer to the Kubernetes API documentation for the fields of the
+            <code>metadata</code> field.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>spec</code><br />
+            <em>
+              <a href="#cf.containeroo.ch/v1beta1.IPSpec"> IPSpec </a>
+            </em>
+          </td>
+          <td>
+            <br />
+            <br />
+            <table>
+              <tr>
+                <td>
+                  <code>address</code><br />
+                  <em> string </em>
+                </td>
+                <td>
+                  <em>(Optional)</em>
+                  <p>IP address (omit if type is dynamic)</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>type</code><br />
+                  <em> string </em>
+                </td>
+                <td>
+                  <em>(Optional)</em>
+                  <p>IP address type (static or dynamic)</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>interval</code><br />
+                  <em>
+                    <a
+                      href="https://godoc.org/k8s.io/apimachinery/pkg/apis/meta/v1#Duration"
+                    >
+                      Kubernetes meta/v1.Duration
+                    </a>
+                  </em>
+                </td>
+                <td>
+                  <em>(Optional)</em>
+                  <p>Interval at which a dynamic IP should be checked</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>ipSources</code><br />
+                  <em>
+                    <a href="#cf.containeroo.ch/v1beta1.IPSpecIPSources">
+                      []IPSpecIPSources
+                    </a>
+                  </em>
+                </td>
+                <td>
+                  <em>(Optional)</em>
+                  <p>
+                    IPSources can be configured to get an IP from an external
+                    source (e.g. an API or public IP echo service)
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>status</code><br />
+            <em>
+              <a href="#cf.containeroo.ch/v1beta1.IPStatus"> IPStatus </a>
+            </em>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3 id="cf.containeroo.ch/v1beta1.IPSpec">IPSpec</h3>
+<p>(<em>Appears on:</em> <a href="#cf.containeroo.ch/v1beta1.IP">IP</a>)</p>
+<p>IPSpec defines the desired state of IP</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>address</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>IP address (omit if type is dynamic)</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>type</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>IP address type (static or dynamic)</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>interval</code><br />
+            <em>
+              <a
+                href="https://godoc.org/k8s.io/apimachinery/pkg/apis/meta/v1#Duration"
+              >
+                Kubernetes meta/v1.Duration
+              </a>
+            </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>Interval at which a dynamic IP should be checked</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>ipSources</code><br />
+            <em>
+              <a href="#cf.containeroo.ch/v1beta1.IPSpecIPSources">
+                []IPSpecIPSources
+              </a>
+            </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              IPSources can be configured to get an IP from an external source
+              (e.g. an API or public IP echo service)
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3 id="cf.containeroo.ch/v1beta1.IPSpecIPSources">IPSpecIPSources</h3>
+<p>
+  (<em>Appears on:</em> <a href="#cf.containeroo.ch/v1beta1.IPSpec">IPSpec</a>)
+</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>url</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              URL of the IP source (e.g.
+              <a href="https://checkip.amazonaws.com"
+                >https://checkip.amazonaws.com</a
+              >)
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>requestBody</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>RequestBody to be sent to the URL</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>requestHeaders</code><br />
+            <em> map[string]string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>RequestHeaders to be sent to the URL</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>requestHeadersSecretRef</code><br />
+            <em>
+              <a
+                href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#secretreference-v1-core"
+              >
+                Kubernetes core/v1.SecretReference
+              </a>
+            </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              RequestHeadersSecretRef is a secret reference to the headers to be
+              sent to the URL (e.g. for authentication) where the key is the
+              header name and the value is the header value
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>requestMethod</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <p>RequestMethod defines the HTTP method to be used</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>responseJQFilter</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              ResponseJQFilter applies a JQ filter to the response to extract
+              the IP
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>postProcessingRegex</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              PostProcessingRegex defines the regular expression to be used to
+              extract the IP from the response or a JQ filter result
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>insecureSkipVerify</code><br />
+            <em> bool </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              InsecureSkipVerify defines whether to skip TLS certificate
+              verification
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3 id="cf.containeroo.ch/v1beta1.IPStatus">IPStatus</h3>
+<p>(<em>Appears on:</em> <a href="#cf.containeroo.ch/v1beta1.IP">IP</a>)</p>
+<p>IPStatus defines the observed state of IP</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>conditions</code><br />
+            <em>
+              <a
+                href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#condition-v1-meta"
+              >
+                []Kubernetes meta/v1.Condition
+              </a>
+            </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              Conditions contains the different condition statuses for the IP
+              object.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>lastObservedIP</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              LastObservedIP contains the IP address observed at the last
+              interval (used to determine whether the IP has changed)
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3 id="cf.containeroo.ch/v1beta1.Zone">Zone</h3>
+<p>Zone is the Schema for the zones API</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>metadata</code><br />
+            <em>
+              <a
+                href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#objectmeta-v1-meta"
+              >
+                Kubernetes meta/v1.ObjectMeta
+              </a>
+            </em>
+          </td>
+          <td>
+            Refer to the Kubernetes API documentation for the fields of the
+            <code>metadata</code> field.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>spec</code><br />
+            <em>
+              <a href="#cf.containeroo.ch/v1beta1.ZoneSpec"> ZoneSpec </a>
+            </em>
+          </td>
+          <td>
+            <br />
+            <br />
+            <table>
+              <tr>
+                <td>
+                  <code>name</code><br />
+                  <em> string </em>
+                </td>
+                <td>
+                  <p>Name of the zone</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>id</code><br />
+                  <em> string </em>
+                </td>
+                <td>
+                  <p>ID of the zone</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>interval</code><br />
+                  <em>
+                    <a
+                      href="https://godoc.org/k8s.io/apimachinery/pkg/apis/meta/v1#Duration"
+                    >
+                      Kubernetes meta/v1.Duration
+                    </a>
+                  </em>
+                </td>
+                <td>
+                  <em>(Optional)</em>
+                  <p>Interval to check zone status</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>status</code><br />
+            <em>
+              <a href="#cf.containeroo.ch/v1beta1.ZoneStatus"> ZoneStatus </a>
+            </em>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3 id="cf.containeroo.ch/v1beta1.ZoneSpec">ZoneSpec</h3>
+<p>(<em>Appears on:</em> <a href="#cf.containeroo.ch/v1beta1.Zone">Zone</a>)</p>
+<p>ZoneSpec defines the desired state of Zone</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>name</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <p>Name of the zone</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>id</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <p>ID of the zone</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>interval</code><br />
+            <em>
+              <a
+                href="https://godoc.org/k8s.io/apimachinery/pkg/apis/meta/v1#Duration"
+              >
+                Kubernetes meta/v1.Duration
+              </a>
+            </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>Interval to check zone status</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3 id="cf.containeroo.ch/v1beta1.ZoneStatus">ZoneStatus</h3>
+<p>(<em>Appears on:</em> <a href="#cf.containeroo.ch/v1beta1.Zone">Zone</a>)</p>
+<p>ZoneStatus defines the observed state of Zone</p>
+<div class="md-typeset__scrollwrap">
+  <div class="md-typeset__table">
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>conditions</code><br />
+            <em>
+              <a
+                href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#condition-v1-meta"
+              >
+                []Kubernetes meta/v1.Condition
+              </a>
+            </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>
+              Conditions contains the different condition statuses for the Zone
+              object.
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="admonition note">
+  <p class="last">
+    This page was automatically generated with
+    <code>gen-crd-api-reference-docs</code>
+  </p>
+</div>

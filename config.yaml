@@ -13,18 +13,12 @@ taxonomies:
 params:
   taxonomy:
     taxonomyCloud:
-      - tags
-      - categories
     taxonomyCloudTitle:
-      - Tag Cloud
-      - Categories
     taxonomyPageHeader:
-      - tags
-      - categories
     pygmentsCodeFences: true
     pygmentsUseClasses: false
     pygmentsUseClassic: false
-    pygmentsStyle: tango
+    pygmentsStyle: monokai
   copyright: containeroo.ch
   version_menu: Releases
   archived_version: false
@@ -78,7 +72,7 @@ markup:
     renderer:
       unsafe: true
   highlight:
-    style: tango
+    style: monokai
 outputs:
   section:
     - HTML

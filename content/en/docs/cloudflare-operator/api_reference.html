@@ -58,26 +58,15 @@ Resource Types:
             <table>
               <tr>
                 <td>
-                  <code>email</code><br />
-                  <em> string </em>
-                </td>
-                <td>
-                  <p>Email of the Cloudflare account</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <code>globalAPIKey</code><br />
+                  <code>apiToken</code><br />
                   <em>
-                    <a
-                      href="#cf.containeroo.ch/v1beta1.AccountSpecGlobalAPIKey"
-                    >
-                      AccountSpecGlobalAPIKey
+                    <a href="#cf.containeroo.ch/v1beta1.AccountSpecApiToken">
+                      AccountSpecApiToken
                     </a>
                   </em>
                 </td>
                 <td>
-                  <p>Global API key of the Cloudflare account</p>
+                  <p>Cloudflare API token</p>
                 </td>
               </tr>
               <tr>
@@ -145,24 +134,15 @@ Resource Types:
       <tbody>
         <tr>
           <td>
-            <code>email</code><br />
-            <em> string </em>
-          </td>
-          <td>
-            <p>Email of the Cloudflare account</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>globalAPIKey</code><br />
+            <code>apiToken</code><br />
             <em>
-              <a href="#cf.containeroo.ch/v1beta1.AccountSpecGlobalAPIKey">
-                AccountSpecGlobalAPIKey
+              <a href="#cf.containeroo.ch/v1beta1.AccountSpecApiToken">
+                AccountSpecApiToken
               </a>
             </em>
           </td>
           <td>
-            <p>Global API key of the Cloudflare account</p>
+            <p>Cloudflare API token</p>
           </td>
         </tr>
         <tr>
@@ -197,9 +177,7 @@ Resource Types:
     </table>
   </div>
 </div>
-<h3 id="cf.containeroo.ch/v1beta1.AccountSpecGlobalAPIKey">
-  AccountSpecGlobalAPIKey
-</h3>
+<h3 id="cf.containeroo.ch/v1beta1.AccountSpecApiToken">AccountSpecApiToken</h3>
 <p>
   (<em>Appears on:</em>
   <a href="#cf.containeroo.ch/v1beta1.AccountSpec">AccountSpec</a>)
@@ -227,8 +205,8 @@ Resource Types:
           </td>
           <td>
             <p>
-              Secret name containing the API key (key must be named
-              &ldquo;apiKey&rdquo;)
+              Secret containing the API token (key must be named
+              &ldquo;apiToken&rdquo;)
             </p>
           </td>
         </tr>

@@ -21,12 +21,11 @@ It is therefore highly recommended to <a href="https://developers.cloudflare.com
 
 ## Configure Cloudflare account
 
-Create a secret with your Cloudflare global API key. The key can be fetched by following <a href="https://developers.cloudflare.com/fundamentals/api/get-started/keys/#view-your-global-api-key" target="blank">this guide</a>.  
-Support for API tokens is coming soon.
+Create a secret with the Cloudflare API token. The token can be created by following <a href="https://developers.cloudflare.com/fundamentals/api/get-started/create-token/" target="blank">this guide</a>.
 
 {{% alert color="info" %}}
 **Note**  
-The key in the secret must be named `apiKey`.  
+The key in the secret must be named `apiToken`.  
 {{% /alert %}}
 
 ```yaml
@@ -34,10 +33,10 @@ apiVersion: v1
 kind: Secret
 type: Opaque
 metadata:
-  name: cloudflare-global-api-key
+  name: cloudflare-api-token
   namespace: cloudflare-operator
 stringData:
-  apiKey: 1234
+  apiToken: 1234
 ```
 
 Next, create an account object:
@@ -48,10 +47,9 @@ kind: Account
 metadata:
   name: account-sample
 spec:
-  email: mail@example.com
-  globalAPIKey:
+  apiToken:
     secretRef:
-      name: cloudflare-global-api-key
+      name: cloudflare-api-token
       namespace: cloudflare-operator
 ```
 
@@ -69,8 +67,8 @@ kubectl get accounts.cf.containeroo.ch
 This should output the following:
 
 ```console
-NAME             EMAIL              READY
-account-sample   mail@example.com   True
+NAME             READY
+account-sample   True
 ```
 
 ```bash

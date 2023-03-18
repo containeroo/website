@@ -1,0 +1,94 @@
+baseURL: /
+title: containeroo.ch
+contentDir: content/en
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+enableMissingTranslationPlaceholders: true
+enableRobotsTXT: true
+enableGitInfo: true
+taxonomies:
+  tag: tags
+  category: categories
+params:
+  taxonomy:
+    taxonomyCloud:
+      - tags
+      - categories
+    taxonomyCloudTitle:
+      - Tag Cloud
+      - Categories
+    taxonomyPageHeader:
+      - tags
+      - categories
+    pygmentsCodeFences: true
+    pygmentsUseClasses: false
+    pygmentsUseClassic: false
+    pygmentsStyle: tango
+  copyright: containeroo.ch
+  version_menu: Releases
+  archived_version: false
+  version: "0.0"
+  url_latest_version: "https://containeroo.ch"
+  github_repo: "https://github.com/containeroo/website"
+  github_branch: master
+  algolia_docsearch: false
+  offlineSearch: false
+  prism_syntax_highlighting: false
+  ui:
+    breadcrumb_disable: false
+    footer_about_disable: false
+    navbar_logo: false
+    navbar_translucent_over_cover_disable: false
+    sidebar_menu_compact: false
+    sidebar_search_disable: false
+    sidebar_menu_foldable: true
+    sidebar_menu_unfold_depth: 1
+    feedback:
+      enable: false
+    readingtime:
+      enable: false
+  links:
+    user:
+      - name: Twitter
+        url: "https://twitter.com/containeroo"
+        icon: fab fa-twitter
+        desc: Follow us on Twitter to get the latest news!
+    developer:
+      - name: GitHub
+        url: "https://github.com/containeroo"
+        icon: fab fa-github
+        desc: Our GitHub organization
+permalinks:
+  blog: "/:section/:year/:month/:day/:slug/"
+imaging:
+  resampleFilter: CatmullRom
+  quality: 75
+  anchor: smart
+services:
+  googleAnalytics: {}
+languages:
+  en:
+    title: contineroo.ch
+    description: where containers happen
+    languageName: English
+    weight: 1
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: tango
+outputs:
+  section:
+    - HTML
+    - print
+    - RSS
+module:
+  hugoVersion:
+    extended: true
+    min: 0.75.0
+  imports:
+    - path: github.com/google/docsy
+      disable: false
+    - path: github.com/google/docsy/dependencies
+      disable: false

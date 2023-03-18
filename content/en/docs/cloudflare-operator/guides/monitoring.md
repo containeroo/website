@@ -13,17 +13,26 @@ description: "Monitor cloudflare-operator with Prometheus"
 The easiest way to deploy all the necessary components is to use
 [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack).
 
+## Enable metrics
+
+In order to enable metrics and automatically deploy the required resources, you need to reconfigure the Helm chart.
+
+Create a `values.yaml` file with the following content:
+
+```yaml
+---
+metrics:
+  podMonitor:
+    enabled: true
+  prometheusRule:
+    enabled: true
+```
+
+Now you can install / upgrade the Helm chart by following [the installation guide](/docs/cloudflare-operator/installation/#customized-installation).
+
 ## Install cloudflare-operator Grafana dashboard
 
-Note that cloudflare-operator exposes the `/metrics` endpoint on port `8080`.
-When using Prometheus Operator, you need a `PodMonitor` object to configure scraping for the controller pod.
-
-Apply the `PodMonitor` and create a ConfigMap with the cloudflare-operator dashboard:
-
 ```bash
-# Create a podmonitor
-kubectl apply -f https://raw.githubusercontent.com/containeroo/cloudflare-operator/master/config/manifests/prometheus/monitor.yaml
-
 # Download Grafana dashboard
 wget https://raw.githubusercontent.com/containeroo/cloudflare-operator/master/config/manifests/grafana/dashboards/overview.json -O /tmp/grafana-dashboard-cloudflare-operator.json
 
@@ -34,7 +43,7 @@ kubectl create configmap grafana-dashboard-cloudflare-operator --from-file=/tmp/
 kubectl label configmap grafana-dashboard-cloudflare-operator grafana_dashboard="1"
 ```
 
-## Metrics
+## Available metrics
 
 For each `cf.containeroo.ch` kind, the controller exposes a gauge metric to track the status condition.
 

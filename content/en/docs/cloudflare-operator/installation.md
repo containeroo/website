@@ -51,7 +51,7 @@ kubectl apply -f https://github.com/containeroo/cloudflare-operator/releases/dow
 To install the latest version of cloudflare-operator, run the following command:
 
 ```bash
-helm install \
+helm upgrade --install \
   cloudflare-operator containeroo/cloudflare-operator \
   --namespace cloudflare-operator \
   --create-namespace
@@ -61,7 +61,7 @@ If you want to install a specific version of cloudflare-operator, run the follow
 
 ```bash
 export VERSION=x.y.z
-helm install \
+helm upgrade --install \
   cloudflare-operator containeroo/cloudflare-operator \
   --namespace cloudflare-operator \
   --create-namespace \
@@ -86,7 +86,7 @@ image:
 Run the following command to install cloudflare-operator with the customized Helm values:
 
 ```bash
-helm install \
+helm upgrade --install \
   cloudflare-operator containeroo/cloudflare-operator \
   --namespace cloudflare-operator \
   --create-namespace \

@@ -69,8 +69,8 @@ kubectl get accounts.cf.containeroo.ch
 This should output the following:
 
 ```console
-NAME   EMAIL              READY
-main   mail@example.com   True
+NAME             EMAIL              READY
+account-sample   mail@example.com   True
 ```
 
 ```bash

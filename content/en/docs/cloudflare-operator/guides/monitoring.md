@@ -2,6 +2,7 @@
 title: "Monitoring with Prometheus"
 linkTitle: "Monitoring with Prometheus"
 description: "Monitor cloudflare-operator with Prometheus"
+weight: 20
 ---
 
 ## Prerequisites

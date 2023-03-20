@@ -62,7 +62,7 @@ spec:
 
 ### Using jq
 
-You can use regex or jq filters to extract an IP address from the response.
+You can use [jq](https://stedolan.github.io/jq/) to filter the response content.
 
 Here is an example for ipify.org:
 

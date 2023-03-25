@@ -46,7 +46,7 @@ Create a secret with the previously created Cloudflare API token.
 
 {{% alert color="info" %}}
 **Note**  
-The key in the secret must be named `apiToken`.  
+The key in the secret must be named `apiToken`.
 {{% /alert %}}
 
 ```yaml

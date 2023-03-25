@@ -51,3 +51,8 @@ spec:
 ```
 
 This will create a DNS record for the host `blog.example.com` with the content `example.com` and the type `CNAME`.
+
+{{% alert color="info" %}}
+**Note**  
+cloudflare-operator only supports `networking.k8s.io/v1` Ingresses.
+{{% /alert %}}

@@ -9,7 +9,7 @@ weight: 10
 cloudflare-operator is designed to serve as the single source of truth for Cloudflare DNS records.  
 It relies on the Kubernetes API to store the desired state of DNS records using Custom Resource Definitions (CRDs).
 
-![cloudflare-operator architecture](/img/cloudflare-operator-architecture.svg)
+![cloudflare-operator architecture](/img/cloudflare-operator-architecture.png)
 
 ## DNS records
 
@@ -18,7 +18,7 @@ These records can be created manually, through a GitOps workflow, or automatical
 
 The Kubernetes API serves as the "single source of truth" for all zones in the configured Cloudflare account.
 
-For more information on creating and using DNS records, please refer to the [DNSRecords documentation](/docs/cloudflare-operator/dns_records).
+For more information on creating and using DNS records, please refer to the [DNSRecords documentation](/docs/cloudflare-operator/resources/dnsrecord).
 
 ## IP objects
 

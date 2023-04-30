@@ -53,7 +53,7 @@ spec:
   type: dynamic
   ipSources:
     - url: localhost:8858/api/v1/namespaces/ingress-nginx/services/ingress-nginx
-      responseJSONPath: "{.status.loadBalancer.ingress.[0].ip}"
+      responseJQFilter: ".status.loadBalancer.ingress[0].ip"
 ```
 
 This IP object will fetch the IP address from the Kubernetes service `ingress-nginx` in the namespace `ingress-nginx` using the kubectl proxy.

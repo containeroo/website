@@ -10,7 +10,7 @@ cloudflare-operator can create DNS records from Ingress resources. This guide sh
 
 The following annotation is required: `cf.containeroo.ch/content` or `cf.containeroo.ch/ip-ref`
 
-To skip the creation of a DNS record, use the annotation `cf.containeroo.ch/ignore: "true"`  
+To skip the creation of a DNS record, use the annotation `cf.containeroo.ch/ignore: "true"`\
 If the DNSRecord was previously created, it get's deleted after setting the ignore annotation.
 
 The following annotations are optional:
@@ -53,6 +53,6 @@ spec:
 This will create a DNS record for the host `blog.example.com` with the content `example.com` and the type `CNAME`.
 
 {{% alert color="info" %}}
-**Note**  
+**Note**\
 cloudflare-operator only supports `networking.k8s.io/v1` Ingresses.
 {{% /alert %}}

@@ -14,8 +14,8 @@ The following prerequisites are required to complete this tutorial:
 - A Cloudflare account
 
 {{% alert color="warning" %}}
-**Attention!** :warning:  
-Note that after a successful installation and configuration, cloudflare-operator will delete **ALL** DNS records in **EVERY ZONE** to which the API token has access!  
+**Attention!** :warning:\
+Note that after a successful installation and configuration, cloudflare-operator will delete **ALL** DNS records in **EVERY ZONE** to which the API token has access!\
 It is therefore highly recommended to <a href="https://developers.cloudflare.com/dns/manage-dns-records/how-to/import-and-export/#export-records" target="blank">export your existing DNS records</a> first!
 {{% /alert %}}
 
@@ -45,7 +45,7 @@ The summary should look similar to this:
 Create a secret with the previously created Cloudflare API token.
 
 {{% alert color="info" %}}
-**Note**  
+**Note**\
 The key in the secret must be named `apiToken`.
 {{% /alert %}}
 
@@ -77,9 +77,9 @@ spec:
 ```
 
 {{% alert color="warning" %}}
-:warning: **BE CAREFUL!** :warning:  
-Did you export your existing DNS records?  
-After creating the account, cloudflare-operator will delete **ALL** DNS records in **EVERY ZONE** to which the API token has access!  
+:warning: **BE CAREFUL!** :warning:\
+Did you export your existing DNS records?\
+After creating the account, cloudflare-operator will delete **ALL** DNS records in **EVERY ZONE** to which the API token has access!\
 This is your last chance to <a href="https://developers.cloudflare.com/dns/manage-dns-records/how-to/import-and-export/#export-records" target="blank">export your existing DNS records</a>!
 {{% /alert %}}
 

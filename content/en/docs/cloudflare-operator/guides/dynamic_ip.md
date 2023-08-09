@@ -36,7 +36,7 @@ spec:
   interval: 5m0s
 ```
 
-The IP object will fetch the public IP address from the internet using one of the specified URLs.  
+The IP object will fetch the public IP address from the internet using one of the specified URLs.\
 If the request fails, the next URL will be tried. If all URLs fail, the last known IP will be used and
 the ready condition will be set to `false`.
 
@@ -97,7 +97,7 @@ If you want to use a regex, you can use the `postProcessingRegex` field.
 This might be useful if you want to extract the IP address from a HTML page.
 
 {{% alert color="info" %}}
-**Note**  
+**Note**\
 The regex must contain a single capture group.
 {{% /alert %}}
 
@@ -133,7 +133,7 @@ spec:
 
 If you want to fetch the IP address from an API, you can use the `responseJQFilter` field.
 
-In this example, we are going to fetch the IP from a Hetzner cloud instance.  
+In this example, we are going to fetch the IP from a Hetzner cloud instance.\
 To authenticate with the API, you can configure the IP object to use a secret
 where the secret key will be used as the header name
 and the secret value will be used as the header value.

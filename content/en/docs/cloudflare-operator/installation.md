@@ -70,7 +70,7 @@ helm upgrade --install \
 
 #### Customized installation
 
-Create a `values.yaml` file.  
+Create a `values.yaml` file.\
 A full list of all supported Helm values can be found <a href="https://artifacthub.io/packages/helm/containeroo/cloudflare-operator" target="blank">here</a>.
 
 Example `values.yaml` file:

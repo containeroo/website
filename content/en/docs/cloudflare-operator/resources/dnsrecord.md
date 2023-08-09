@@ -32,7 +32,7 @@ spec:
   interval: 5m
 ```
 
-This example creates a DNS record for the domain `vpn.example.com` with the type `A` and the IP address from the `dynamic-external-ipv4-address` IP object.  
+This example creates a DNS record for the domain `vpn.example.com` with the type `A` and the IP address from the `dynamic-external-ipv4-address` IP object.\
 It also sets the `proxied` flag to `false` and the `ttl` to `120`.
 
 Another example is the following:

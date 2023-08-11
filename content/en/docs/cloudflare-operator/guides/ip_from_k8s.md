@@ -45,7 +45,7 @@ An IP object could then look like this:
 
 ```yaml
 ---
-apiVersion: cf.containeroo.ch/v1beta1
+apiVersion: cloudflare-operator.io/v1
 kind: IP
 metadata:
   name: ingress-ip

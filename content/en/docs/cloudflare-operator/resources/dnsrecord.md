@@ -4,7 +4,7 @@ description: "Learn how to use the DNSRecord resource"
 weight: 30
 ---
 
-The API specification can be viewed [here](/docs/cloudflare-operator/api_reference/#cf.containeroo.ch/v1beta1.DNSRecord).
+The API specification can be viewed [here](/docs/cloudflare-operator/api_reference/#cloudflare-operator.io/v1.DNSRecord).
 
 DNSRecord resources represent DNS records in the Cloudflare account.
 
@@ -17,7 +17,7 @@ As described [in this guide](/docs/cloudflare-operator/guides/ingress), cloudfla
 If you want to create DNSRecords manually, you can use the following example as a starting point:
 
 ```yaml
-apiVersion: cf.containeroo.ch/v1beta1
+apiVersion: cloudflare-operator.io/v1
 kind: DNSRecord
 metadata:
   name: vpn
@@ -38,7 +38,7 @@ It also sets the `proxied` flag to `false` and the `ttl` to `120`.
 Another example is the following:
 
 ```yaml
-apiVersion: cf.containeroo.ch/v1beta1
+apiVersion: cloudflare-operator.io/v1
 kind: DNSRecord
 metadata:
   name: blog

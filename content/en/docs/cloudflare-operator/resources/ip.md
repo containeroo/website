@@ -4,7 +4,7 @@ description: "Learn how to use the IP resource"
 weight: 40
 ---
 
-The API specification can be viewed [here](/docs/cloudflare-operator/api_reference/#cf.containeroo.ch/v1beta1.IP).
+The API specification can be viewed [here](/docs/cloudflare-operator/api_reference/#cloudflare-operator.io/v1.IP).
 
 As described in the [core concept](/docs/cloudflare-operator/core_concepts/#ip-objects), IP objects can be used
 to follow the "don't repeat yourself" (DRY) principle.

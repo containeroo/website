@@ -46,7 +46,7 @@ kubectl label configmap grafana-dashboard-cloudflare-operator grafana_dashboard=
 
 ## Available metrics
 
-For each `cf.containeroo.ch` kind, the controller exposes a gauge metric to track the status condition.
+For each `cloudflare-operator.io` kind, the controller exposes a gauge metric to track the status condition.
 
 Ready status metrics:
 

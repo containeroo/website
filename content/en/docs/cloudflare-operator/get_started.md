@@ -65,7 +65,7 @@ Next, create an account object:
 
 ```yaml
 ---
-apiVersion: cf.containeroo.ch/v1beta1
+apiVersion: cloudflare-operator.io/v1
 kind: Account
 metadata:
   name: account-sample
@@ -86,7 +86,7 @@ This is your last chance to <a href="https://developers.cloudflare.com/dns/manag
 Check if the account is ready:
 
 ```bash
-kubectl get accounts.cf.containeroo.ch
+kubectl get accounts.cloudflare-operator.io
 ```
 
 This should output the following:
@@ -97,7 +97,7 @@ account-sample   True
 ```
 
 ```bash
-kubectl get zones.cf.containeroo.ch
+kubectl get zones.cloudflare-operator.io
 ```
 
 ```console
@@ -111,7 +111,7 @@ Now, we can create our first DNS record:
 
 ```yaml
 ---
-apiVersion: cf.containeroo.ch/v1beta1
+apiVersion: cloudflare-operator.io/v1
 kind: DNSRecord
 metadata:
   name: example-com
@@ -128,7 +128,7 @@ spec:
 Check the status of the DNS record:
 
 ```bash
-kubectl get dnsrecords.cf.containeroo.ch --namespace cloudflare-operator
+kubectl get dnsrecords.cloudflare-operator.io --namespace cloudflare-operator
 ```
 
 ```console

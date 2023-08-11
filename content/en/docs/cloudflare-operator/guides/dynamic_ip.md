@@ -16,7 +16,7 @@ Create an IP object with the following content:
 
 ```yaml
 ---
-apiVersion: cf.containeroo.ch/v1beta1
+apiVersion: cloudflare-operator.io/v1
 kind: IP
 metadata:
   name: external-v4
@@ -44,7 +44,7 @@ Now, create a DNS record object with the following content:
 
 ```yaml
 ---
-apiVersion: cf.containeroo.ch/v1beta1
+apiVersion: cloudflare-operator.io/v1
 kind: DNSRecord
 metadata:
   name: example-com
@@ -77,7 +77,7 @@ The IP object would look like this:
 
 ```yaml
 ---
-apiVersion: cf.containeroo.ch/v1beta1
+apiVersion: cloudflare-operator.io/v1
 kind: IP
 metadata:
   name: external-v4
@@ -116,7 +116,7 @@ In this case, the IP object would look like this:
 
 ```yaml
 ---
-apiVersion: cf.containeroo.ch/v1beta1
+apiVersion: cloudflare-operator.io/v1
 kind: IP
 metadata:
   name: external-v4
@@ -155,7 +155,7 @@ Now, create an IP object with the following content:
 
 ```yaml
 ---
-apiVersion: cf.containeroo.ch/v1beta1
+apiVersion: cloudflare-operator.io/v1
 kind: IP
 metadata:
   name: my-instance-v4

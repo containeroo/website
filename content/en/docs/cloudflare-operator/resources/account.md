@@ -4,7 +4,7 @@ description: "Learn how to use the Account resource"
 weight: 10
 ---
 
-The API specification can be viewed [here](/docs/cloudflare-operator/api_reference/#cf.containeroo.ch/v1beta1.Account).
+The API specification can be viewed [here](/docs/cloudflare-operator/api_reference/#cloudflare-operator.io/v1.Account).
 
 In order to use cloudflare-operator, you need to create an account resource. This resource contains the credentials for the Cloudflare API.
 

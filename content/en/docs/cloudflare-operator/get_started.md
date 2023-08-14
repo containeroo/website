@@ -122,7 +122,7 @@ spec:
   content: 69.42.0.69
   proxied: true
   ttl: 1
-  interval: 5m
+  interval: 5m0s
 ```
 
 Check the status of the DNS record:

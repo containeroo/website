@@ -29,7 +29,7 @@ spec:
     name: dynamic-external-ipv4-address
   proxied: false
   ttl: 120
-  interval: 5m
+  interval: 5m0s
 ```
 
 This example creates a DNS record for the domain `vpn.example.com` with the type `A` and the IP address from the `dynamic-external-ipv4-address` IP object.\
@@ -49,7 +49,7 @@ spec:
   type: A
   proxied: true
   ttl: 1
-  interval: 5m
+  interval: 5m0s
 ```
 
 This example creates a DNS record for the domain `blog.example.com` with the type `A` and the content `69.42.0.69`.

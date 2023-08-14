@@ -15,14 +15,14 @@ If the DNSRecord was previously created, it get's deleted after setting the igno
 
 The following annotations are optional:
 
-| Annotation                   | Value                     | Description                                                 |
-| ---------------------------- | ------------------------- | ----------------------------------------------------------- |
+| Annotation                        | Value                     | Description                                                 |
+| --------------------------------- | ------------------------- | ----------------------------------------------------------- |
 | `cloudflare-operator.io/content`  | IP address or domain      | DNS record content (e.g. `69.42.0.69`)                      |
 | `cloudflare-operator.io/ip-ref`   | Reference to an IP object | e.g. `my-external-ip`                                       |
 | `cloudflare-operator.io/proxied`  | `true` or `false`         | Whether the record should be proxied                        |
 | `cloudflare-operator.io/ttl`      | `1` or `60` - `86400`     | TTL of the DNS record                                       |
 | `cloudflare-operator.io/type`     | `A`, `AAAA` or `CNAME`    | Desired DNS record type                                     |
-| `cloudflare-operator.io/interval` | e.g. `5m`                 | Interval at which the DNSRecord object should be reconciled |
+| `cloudflare-operator.io/interval` | e.g. `5m0s`               | Interval at which the DNSRecord object should be reconciled |
 
 An example Ingress resource with annotations:
 

@@ -8,21 +8,20 @@ cloudflare-operator can create DNS records from Ingress resources. This guide sh
 
 ## Ingress annotations
 
-The following annotation is required: `cloudflare-operator.io/content` or `cloudflare-operator.io/ip-ref`
+One of the following annotations is required: `cloudflare-operator.io/content` or `cloudflare-operator.io/ip-ref`
 
-To skip the creation of a DNS record, use the annotation `cloudflare-operator.io/ignore: "true"`\
-If the DNSRecord was previously created, it get's deleted after setting the ignore annotation.
+Ingress objects that do not have one of these annotations will be ignored by cloudflare-operator.
 
-The following annotations are optional:
+These are the available annotations:
 
-| Annotation                        | Value                     | Description                                                 |
-| --------------------------------- | ------------------------- | ----------------------------------------------------------- |
-| `cloudflare-operator.io/content`  | IP address or domain      | DNS record content (e.g. `69.42.0.69`)                      |
-| `cloudflare-operator.io/ip-ref`   | Reference to an IP object | e.g. `my-external-ip`                                       |
-| `cloudflare-operator.io/proxied`  | `true` or `false`         | Whether the record should be proxied                        |
-| `cloudflare-operator.io/ttl`      | `1` or `60` - `86400`     | TTL of the DNS record                                       |
-| `cloudflare-operator.io/type`     | `A`, `AAAA` or `CNAME`    | Desired DNS record type                                     |
-| `cloudflare-operator.io/interval` | e.g. `5m0s`               | Interval at which the DNSRecord object should be reconciled |
+| Annotation                        | Value                     | Description                                                 | Required                    |
+| --------------------------------- | ------------------------- | ----------------------------------------------------------- | --------------------------- |
+| `cloudflare-operator.io/content`  | IP address or domain      | DNS record content (e.g. `69.42.0.69`)                      | yes if `ip-ref` is not set  |
+| `cloudflare-operator.io/ip-ref`   | Reference to an IP object | e.g. `my-external-ip`                                       | yes if `content` is not set |
+| `cloudflare-operator.io/proxied`  | `true` or `false`         | Whether the record should be proxied                        | no                          |
+| `cloudflare-operator.io/ttl`      | `1` or `60` - `86400`     | TTL of the DNS record                                       | no                          |
+| `cloudflare-operator.io/type`     | `A`, `AAAA` or `CNAME`    | Desired DNS record type                                     | no                          |
+| `cloudflare-operator.io/interval` | e.g. `5m0s`               | Interval at which the DNSRecord object should be reconciled | no                          |
 
 An example Ingress resource with annotations:
 

@@ -91,7 +91,8 @@ Resource Types:
                   <em>(Optional)</em>
                   <p>
                     List of zone names that should be managed by
-                    cloudflare-operator
+                    cloudflare-operator Deprecated and will be removed in a
+                    future release
                   </p>
                 </td>
               </tr>
@@ -167,6 +168,7 @@ Resource Types:
             <em>(Optional)</em>
             <p>
               List of zone names that should be managed by cloudflare-operator
+              Deprecated and will be removed in a future release
             </p>
           </td>
         </tr>
@@ -244,59 +246,6 @@ Resource Types:
               Conditions contains the different condition statuses for the
               Account object.
             </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>zones</code><br />
-            <em>
-              <a href="#cloudflare-operator.io/v1.AccountStatusZones">
-                []AccountStatusZones
-              </a>
-            </em>
-          </td>
-          <td>
-            <em>(Optional)</em>
-            <p>Zones contains all the zones of the Account</p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-<h3 id="cloudflare-operator.io/v1.AccountStatusZones">AccountStatusZones</h3>
-<p>
-  (<em>Appears on:</em>
-  <a href="#cloudflare-operator.io/v1.AccountStatus">AccountStatus</a>)
-</p>
-<div class="md-typeset__scrollwrap">
-  <div class="md-typeset__table">
-    <table>
-      <thead>
-        <tr>
-          <th>Field</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <code>name</code><br />
-            <em> string </em>
-          </td>
-          <td>
-            <em>(Optional)</em>
-            <p>Name of the zone</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>id</code><br />
-            <em> string </em>
-          </td>
-          <td>
-            <em>(Optional)</em>
-            <p>ID of the zone</p>
           </td>
         </tr>
       </tbody>
@@ -1098,11 +1047,15 @@ Resource Types:
               </tr>
               <tr>
                 <td>
-                  <code>id</code><br />
-                  <em> string </em>
+                  <code>prune</code><br />
+                  <em> bool </em>
                 </td>
                 <td>
-                  <p>ID of the zone</p>
+                  <em>(Optional)</em>
+                  <p>
+                    Prune determines whether DNS records in the zone that are
+                    not managed by Kubernetes should be automatically removed
+                  </p>
                 </td>
               </tr>
               <tr>
@@ -1161,11 +1114,15 @@ Resource Types:
         </tr>
         <tr>
           <td>
-            <code>id</code><br />
-            <em> string </em>
+            <code>prune</code><br />
+            <em> bool </em>
           </td>
           <td>
-            <p>ID of the zone</p>
+            <em>(Optional)</em>
+            <p>
+              Prune determines whether DNS records in the zone that are not
+              managed by Kubernetes should be automatically removed
+            </p>
           </td>
         </tr>
         <tr>
@@ -1201,6 +1158,16 @@ Resource Types:
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td>
+            <code>id</code><br />
+            <em> string </em>
+          </td>
+          <td>
+            <em>(Optional)</em>
+            <p>ID of the zone</p>
+          </td>
+        </tr>
         <tr>
           <td>
             <code>conditions</code><br />

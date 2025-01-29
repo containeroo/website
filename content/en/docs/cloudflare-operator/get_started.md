@@ -85,7 +85,7 @@ account-sample   True
 
 {{% alert color="warning" %}}
 **Attention!** :warning:\
-Note that after a successful installation and configuration, if the prune option is enabled (by default), cloudflare-operator will delete **ALL** DNS records in **EVERY ZONE** you have created!\
+Note that after a successful installation and configuration, if the prune option is enabled (by default), cloudflare-operator will delete **ALL** DNS records in **EVERY ZONE** for which you have created a Zone object!\
 It is therefore highly recommended to <a href="https://developers.cloudflare.com/dns/manage-dns-records/how-to/import-and-export/#export-records" target="blank">export your existing DNS records</a> first!
 You can migrate all your DNS records to cloudflare-operator by following <a href="/docs/cloudflare-operator/guides/migration" target="blank">this guide</a>.
 {{% /alert %}}

@@ -7,6 +7,11 @@ enableMissingTranslationPlaceholders: true
 enableRobotsTXT: true
 enableEmoji: true
 enableGitInfo: true
+languageCode: en-us
+module:
+  proxy: direct
+  imports:
+    - path: github.com/google/docsy
 taxonomies:
   tag: tags
   category: categories
@@ -26,12 +31,11 @@ params:
   url_latest_version: "https://containeroo.ch"
   github_repo: "https://github.com/containeroo/website"
   github_branch: master
-  algolia_docsearch: false
   offlineSearch: false
   prism_syntax_highlighting: false
   ui:
     breadcrumb_disable: false
-    footer_about_disable: false
+    footer_about_enable: true
     navbar_logo: false
     navbar_translucent_over_cover_disable: false
     sidebar_menu_compact: false
@@ -58,7 +62,7 @@ permalinks:
 imaging:
   resampleFilter: CatmullRom
   quality: 75
-  anchor: smart
+  anchor: Smart
 services:
   googleAnalytics: {}
 languages:
@@ -73,17 +77,3 @@ markup:
       unsafe: true
   highlight:
     style: monokai
-outputs:
-  section:
-    - HTML
-    - print
-    - RSS
-module:
-  hugoVersion:
-    extended: true
-    min: 0.75.0
-  imports:
-    - path: github.com/google/docsy
-      disable: false
-    - path: github.com/google/docsy/dependencies
-      disable: false

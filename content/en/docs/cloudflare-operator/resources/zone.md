@@ -6,7 +6,6 @@ weight: 20
 
 The API specification can be viewed [here](/docs/cloudflare-operator/api_reference/#cloudflare-operator.io/v1.Zone).
 
-Zone resources represent the zones available in the Cloudflare account.
-They are used to store the zone id and **are fully managed by cloudflare-operator**.
+Zone resources represent Cloudflare zones and are used to tell cloudflare-operator which zones to manage.
 
-Therefore, you should not create or modify zone resources manually.
+Learn more about the zone resource in the [getting started guide](/docs/cloudflare-operator/get_started).

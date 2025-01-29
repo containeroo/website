@@ -13,13 +13,6 @@ The following prerequisites are required to complete this tutorial:
 - A Kubernetes cluster with cloudflare-operator installed (follow [the installation guide](/docs/cloudflare-operator/installation))
 - A Cloudflare account
 
-{{% alert color="warning" %}}
-**Attention!** :warning:\
-Note that after a successful installation and configuration, cloudflare-operator will delete **ALL** DNS records in **EVERY ZONE** to which the API token has access!\
-It is therefore highly recommended to <a href="https://developers.cloudflare.com/dns/manage-dns-records/how-to/import-and-export/#export-records" target="blank">export your existing DNS records</a> first!
-You can migrate all your DNS records to cloudflare-operator by following <a href="/docs/cloudflare-operator/guides/migration" target="blank">this guide</a>.
-{{% /alert %}}
-
 ## Create Cloudflare API token
 
 The token can be created by following <a href="https://developers.cloudflare.com/fundamentals/api/get-started/create-token/" target="blank">this guide</a>.
@@ -64,14 +57,6 @@ stringData:
 
 Next, create an account object:
 
-{{% alert color="warning" %}}
-:warning: **BE CAREFUL!** :warning:\
-Did you export your existing DNS records?\
-After creating the account, cloudflare-operator will delete **ALL** DNS records in **EVERY ZONE** to which the API token has access!\
-This is your last chance to <a href="https://developers.cloudflare.com/dns/manage-dns-records/how-to/import-and-export/#export-records" target="blank">export your existing DNS records</a>!
-Also, don't forget to <a href="/docs/cloudflare-operator/guides/migration" target="blank">migrate your DNS records</a> to cloudflare-operator before creating the account object!
-{{% /alert %}}
-
 ```yaml
 ---
 apiVersion: cloudflare-operator.io/v1
@@ -97,6 +82,28 @@ This should output the following:
 NAME             READY
 account-sample   True
 ```
+
+{{% alert color="warning" %}}
+**Attention!** :warning:\
+Note that after a successful installation and configuration, if the prune option is enabled (by default), cloudflare-operator will delete **ALL** DNS records in **EVERY ZONE** to which the API token has access!\
+It is therefore highly recommended to <a href="https://developers.cloudflare.com/dns/manage-dns-records/how-to/import-and-export/#export-records" target="blank">export your existing DNS records</a> first!
+You can migrate all your DNS records to cloudflare-operator by following <a href="/docs/cloudflare-operator/guides/migration" target="blank">this guide</a>.
+{{% /alert %}}
+
+Next, create a zone object:
+
+```yaml
+---
+apiVersion: cloudflare-operator.io/v1
+kind: Zone
+metadata:
+  name: example-com
+spec:
+  name: example.com
+  prune: false
+```
+
+Verify that the zone is ready:
 
 ```bash
 kubectl get zones.cloudflare-operator.io

@@ -10,3 +10,5 @@ This change requires users to explicitly define which zones the operator should 
 
 If you already use cloudflare-operator prior to v1.4.0, cloudflare-operator will continue working as before. However, if you follow the GitOps approach, you now also have
 to manage the zones that the operator should manage.
+
+cloudflare-operator can take over manually created DNS records if the name, content and type of the record match with the DNSRecord spec.

@@ -22,6 +22,7 @@ These are the available annotations:
 | `cloudflare-operator.io/ttl`      | `1` or `60` - `86400`     | TTL of the DNS record                                       | no                          |
 | `cloudflare-operator.io/type`     | `A`, `AAAA` or `CNAME`    | Desired DNS record type                                     | no                          |
 | `cloudflare-operator.io/interval` | e.g. `5m0s`               | Interval at which the DNSRecord object should be reconciled | no                          |
+| `cloudflare-operator.io/comment`  | e.g. `hello world`        | An optional comment to add to the DNS record                | no                          |
 
 An example Ingress resource with annotations:
 

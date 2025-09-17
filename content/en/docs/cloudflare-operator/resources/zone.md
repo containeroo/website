@@ -48,4 +48,7 @@ In this configuration:
 - `_acme-challenge` and `custom-txt-record` will be ignored for `TXT` records.
 - Any `CNAME` record matching the regex `^cf-.*` will also be ignored.
 
-**Important:** If you define your own `ignoredRecords`, you must include any default entries you want to preserve (such as `_acme-challenge`). The operator does **not** automatically merge defaults with user-defined values.
+{{% alert color="warning" %}}
+**Important!** :warning:\
+If you define your own `ignoredRecords`, you must include any default entries you want to preserve (such as `_acme-challenge`). The operator does **not** automatically merge defaults with user-defined values.
+{{% /alert %}}

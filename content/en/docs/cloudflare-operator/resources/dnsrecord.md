@@ -12,7 +12,7 @@ For each DNS record, you need to create a DNSRecord resource.
 
 cloudflare-operator will create the DNS record in the Cloudflare account and keep it in sync with the DNSRecord resource.
 
-As described in the Ingress and Gateway API guides, cloudflare-operator can create DNSRecords from Ingress and optional HTTPRoute resources.
+As described in the Ingress and Gateway API guides, cloudflare-operator can create DNSRecords from Ingress and optional HTTPRoute resources (available starting with `cloudflare-operator` v1.8.0).
 
 If you want to create DNSRecords manually, you can use the following example as a starting point:
 

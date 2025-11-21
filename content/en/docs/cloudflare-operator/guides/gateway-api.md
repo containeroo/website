@@ -4,7 +4,7 @@ description: "Learn how to create DNS records from HTTPRoute objects"
 weight: 11
 ---
 
-cloudflare-operator can create DNS records from Gateway API `HTTPRoute` resources. This is an opt-in feature.
+cloudflare-operator can create DNS records from Gateway API `HTTPRoute` resources. This is an opt-in feature and is available starting with `cloudflare-operator` v1.8.0; earlier releases ignore HTTPRoute resources.
 
 ## Prerequisites
 

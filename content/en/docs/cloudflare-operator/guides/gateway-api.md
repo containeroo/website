@@ -1,18 +1,22 @@
 ---
-title: "Create DNS records from Ingress"
-description: "Learn how to create DNS records from Ingress"
-weight: 10
+title: "Create DNS records from Gateway API HTTPRoute"
+description: "Learn how to create DNS records from HTTPRoute objects"
+weight: 11
 ---
 
-cloudflare-operator can create DNS records from Ingress resources. This guide shows how to configure the controller to automatically create DNS records for your Ingress resources. The same annotations also apply to Gateway API `HTTPRoute` objects when the feature flag `--enable-gateway-api` is enabled.
+cloudflare-operator can create DNS records from Gateway API `HTTPRoute` resources. This is an opt-in feature.
 
-## Ingress annotations
+## Prerequisites
 
-One of the following annotations is required: `cloudflare-operator.io/content` or `cloudflare-operator.io/ip-ref`
+- Install the Gateway API CRDs (for example `gateway.networking.k8s.io/v1` from the upstream install manifests).
+- Start cloudflare-operator with the flag `--enable-gateway-api`.
 
-Ingress objects that do not have one of these annotations will be ignored by cloudflare-operator.
+## HTTPRoute annotations
 
-These are the available annotations:
+The same annotations used for Ingress are honored on HTTPRoute objects. One of these is required:\
+`cloudflare-operator.io/content` or `cloudflare-operator.io/ip-ref`
+
+HTTPRoute objects that do not have one of these annotations will be ignored by cloudflare-operator.
 
 | Annotation                        | Value                     | Description                                                 | Required                    |
 | --------------------------------- | ------------------------- | ----------------------------------------------------------- | --------------------------- |
@@ -24,35 +28,26 @@ These are the available annotations:
 | `cloudflare-operator.io/interval` | e.g. `5m0s`               | Interval at which the DNSRecord object should be reconciled | no                          |
 | `cloudflare-operator.io/comment`  | e.g. `hello world`        | An optional comment to add to the DNS record                | no                          |
 
-An example Ingress resource with annotations:
+Example HTTPRoute:
 
 ```yaml
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
 metadata:
-  annotations:
-    cloudflare-operator.io/type: CNAME
-    cloudflare-operator.io/content: example.com
   name: blog
-  namespace: blog
+  namespace: cloudflare-operator-system
+  annotations:
+    cloudflare-operator.io/content: example.com
+    cloudflare-operator.io/type: CNAME
 spec:
+  parentRefs:
+    - name: blog-gateway
+  hostnames:
+    - blog.example.com
   rules:
-    - host: blog.example.com
-      http:
-        paths:
-          - backend:
-              service:
-                name: blog
-                port:
-                  name: http
-            path: /
-            pathType: Prefix
+    - backendRefs:
+        - name: blog
+          port: 80
 ```
 
-This will create a DNS record for the host `blog.example.com` with the content `example.com` and the type `CNAME`.
-
-{{% alert color="info" %}}
-**Note**\
-cloudflare-operator only supports `networking.k8s.io/v1` Ingresses.
-{{% /alert %}}
+This creates a DNS record for the host `blog.example.com` with content `example.com` and type `CNAME`.

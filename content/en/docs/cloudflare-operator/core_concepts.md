@@ -14,7 +14,7 @@ It relies on the Kubernetes API to store the desired state of DNS records using 
 ## DNS records
 
 Cloudflare DNS records are specified using a CRD (`dnsrecords.cloudflare-operator.io`).\
-These records can be created manually, through a GitOps workflow, or automatically generated from Kubernetes Ingress resources.
+These records can be created manually, through a GitOps workflow, or automatically generated from Kubernetes Ingress resources and (optionally) Gateway API `HTTPRoute` resources when the feature flag is enabled.
 
 The Kubernetes API serves as the "single source of truth" for all zones in the configured Cloudflare account.
 

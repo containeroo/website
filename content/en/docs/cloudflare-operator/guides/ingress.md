@@ -4,7 +4,7 @@ description: "Learn how to create DNS records from Ingress"
 weight: 10
 ---
 
-cloudflare-operator can create DNS records from Ingress resources. This guide shows how to configure the controller to automatically create DNS records for your Ingress resources. The same annotations also apply to Gateway API `HTTPRoute` objects when the feature flag `--enable-gateway-api` is enabled, starting with `cloudflare-operator` v1.8.0.
+cloudflare-operator can create DNS records from Ingress resources. This guide shows how to configure the controller to automatically create DNS records for your Ingress resources. The same annotations also apply to supported Gateway API route objects when the feature flag `--enable-gateway-api` is enabled.
 
 ## Ingress annotations
 

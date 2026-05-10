@@ -1,22 +1,37 @@
 ---
-title: "Create DNS records from Gateway API HTTPRoute"
-description: "Learn how to create DNS records from HTTPRoute objects"
+title: "Create DNS records from Gateway API routes"
+description: "Learn how to create DNS records from Gateway API route objects"
 weight: 11
 ---
 
-cloudflare-operator can create DNS records from Gateway API `HTTPRoute` resources. This is an opt-in feature and is available starting with `cloudflare-operator` v1.8.0; earlier releases ignore HTTPRoute resources.
+cloudflare-operator can create DNS records from Gateway API route resources. This is an opt-in feature controlled by `--enable-gateway-api`.
+
+Supported route kinds:
+
+- `HTTPRoute`
+- `TLSRoute`
+- `GRPCRoute`
+
+`TCPRoute` and `UDPRoute` are not supported directly because Gateway API does not define route-level hostnames for them. If you need DNS for TCP or UDP traffic, create a `DNSRecord` resource manually for the hostname that should resolve to your gateway.
 
 ## Prerequisites
 
 - Install the Gateway API CRDs (for example `gateway.networking.k8s.io/v1` from the upstream install manifests).
 - Start cloudflare-operator with the flag `--enable-gateway-api`.
 
-## HTTPRoute annotations
+When installed with Helm, enable Gateway API reconciliation with:
 
-The same annotations used for Ingress are honored on HTTPRoute objects. One of these is required:\
+```yaml
+gatewayAPI:
+  enabled: true
+```
+
+## Route annotations
+
+The same annotations used for Ingress are honored on supported Gateway API route objects. One of these is required:\
 `cloudflare-operator.io/content` or `cloudflare-operator.io/ip-ref`
 
-HTTPRoute objects that do not have one of these annotations will be ignored by cloudflare-operator.
+Route objects that do not have one of these annotations will be ignored by cloudflare-operator.
 
 | Annotation                        | Value                     | Description                                                 | Required                    |
 | --------------------------------- | ------------------------- | ----------------------------------------------------------- | --------------------------- |
@@ -51,3 +66,51 @@ spec:
 ```
 
 This creates a DNS record for the host `blog.example.com` with content `example.com` and type `CNAME`.
+
+Example TLSRoute:
+
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: TLSRoute
+metadata:
+  name: passthrough
+  namespace: cloudflare-operator-system
+  annotations:
+    cloudflare-operator.io/content: 203.0.113.10
+    cloudflare-operator.io/type: A
+spec:
+  parentRefs:
+    - name: tls-gateway
+  hostnames:
+    - tls.example.com
+  rules:
+    - backendRefs:
+        - name: tls-service
+          port: 443
+```
+
+This creates a DNS record for the SNI hostname `tls.example.com`.
+
+Example GRPCRoute:
+
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: GRPCRoute
+metadata:
+  name: api
+  namespace: cloudflare-operator-system
+  annotations:
+    cloudflare-operator.io/content: example.com
+    cloudflare-operator.io/type: CNAME
+spec:
+  parentRefs:
+    - name: grpc-gateway
+  hostnames:
+    - grpc.example.com
+  rules:
+    - backendRefs:
+        - name: grpc-api
+          port: 50051
+```
+
+This creates a DNS record for the gRPC host `grpc.example.com`.

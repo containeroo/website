@@ -52,7 +52,7 @@ metadata:
 spec:
   type: dynamic
   ipSources:
-    - url: localhost:8858/api/v1/namespaces/ingress-nginx/services/ingress-nginx
+    - url: http://localhost:8858/api/v1/namespaces/ingress-nginx/services/ingress-nginx
       responseJQFilter: ".status.loadBalancer.ingress[0].ip"
 ```
 

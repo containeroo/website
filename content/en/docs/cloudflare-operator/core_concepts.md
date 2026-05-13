@@ -20,6 +20,14 @@ The Kubernetes API serves as the "single source of truth" for all zones in the c
 
 For more information on creating and using DNS records, please refer to the [DNSRecords documentation](/docs/cloudflare-operator/resources/dnsrecord).
 
+## Accounts and zones
+
+Account resources hold Cloudflare API credentials. If there is exactly one Account in the cluster, Zone and DNSRecord resources can omit `spec.accountRef` and the operator will use that Account automatically.
+
+When you configure multiple Accounts, set `spec.accountRef.name` on each Zone. DNSRecords use the Account from their matching Zone. A DNSRecord can also set `spec.accountRef.name` directly, but it must match the Zone account when the Zone has one.
+
+For Ingress and Gateway API route automation, use the `cloudflare-operator.io/account-ref` annotation when records should be created through a specific Account.
+
 ## IP objects
 
 IP objects can be utilized to follow the "don't repeat yourself" (DRY) principle.

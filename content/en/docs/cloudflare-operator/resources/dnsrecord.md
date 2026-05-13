@@ -14,6 +14,8 @@ cloudflare-operator will create the DNS record in the Cloudflare account and kee
 
 As described in the Ingress and Gateway API guides, cloudflare-operator can create DNSRecords from Ingress and supported Gateway API route resources.
 
+DNSRecords are reconciled through the Account selected by their matching Zone. If the Zone does not set `spec.accountRef.name`, a DNSRecord can set `spec.accountRef.name` directly. If both the Zone and DNSRecord set an Account, they must reference the same Account.
+
 If you want to create DNSRecords manually, you can use the following example as a starting point:
 
 ```yaml
@@ -24,6 +26,8 @@ metadata:
   namespace: cloudflare-operator
 spec:
   name: vpn.example.com
+  accountRef:
+    name: account-sample
   type: A
   ipRef:
     name: dynamic-external-ipv4-address
@@ -44,7 +48,7 @@ metadata:
   name: blog
   namespace: cloudflare-operator
 spec:
-  name: blob.example.com
+  name: blog.example.com
   content: 69.42.0.69
   type: A
   proxied: true

@@ -36,6 +36,7 @@ Route objects that do not have one of these annotations will be ignored by cloud
 | Annotation                        | Value                     | Description                                                 | Required                    |
 | --------------------------------- | ------------------------- | ----------------------------------------------------------- | --------------------------- |
 | `cloudflare-operator.io/content`  | IP address or domain      | DNS record content (e.g. `69.42.0.69`)                      | yes if `ip-ref` is not set  |
+| `cloudflare-operator.io/account-ref` | Account resource name   | Account to use for the generated DNSRecord                  | no                          |
 | `cloudflare-operator.io/ip-ref`   | Reference to an IP object | e.g. `my-external-ip`                                       | yes if `content` is not set |
 | `cloudflare-operator.io/proxied`  | `true` or `false`         | Whether the record should be proxied                        | no                          |
 | `cloudflare-operator.io/ttl`      | `1` or `60` - `86400`     | TTL of the DNS record                                       | no                          |
@@ -52,6 +53,7 @@ metadata:
   name: blog
   namespace: cloudflare-operator-system
   annotations:
+    cloudflare-operator.io/account-ref: account-sample
     cloudflare-operator.io/content: example.com
     cloudflare-operator.io/type: CNAME
 spec:
@@ -76,6 +78,7 @@ metadata:
   name: passthrough
   namespace: cloudflare-operator-system
   annotations:
+    cloudflare-operator.io/account-ref: account-sample
     cloudflare-operator.io/content: 203.0.113.10
     cloudflare-operator.io/type: A
 spec:
@@ -100,6 +103,7 @@ metadata:
   name: api
   namespace: cloudflare-operator-system
   annotations:
+    cloudflare-operator.io/account-ref: account-sample
     cloudflare-operator.io/content: example.com
     cloudflare-operator.io/type: CNAME
 spec:
@@ -114,3 +118,5 @@ spec:
 ```
 
 This creates a DNS record for the gRPC host `grpc.example.com`.
+
+If `cloudflare-operator.io/account-ref` is set, the generated DNSRecord will use that Account. When the matching Zone also has `spec.accountRef.name`, both references must point to the same Account.

@@ -17,6 +17,7 @@ These are the available annotations:
 | Annotation                        | Value                     | Description                                                 | Required                    |
 | --------------------------------- | ------------------------- | ----------------------------------------------------------- | --------------------------- |
 | `cloudflare-operator.io/content`  | IP address or domain      | DNS record content (e.g. `69.42.0.69`)                      | yes if `ip-ref` is not set  |
+| `cloudflare-operator.io/account-ref` | Account resource name   | Account to use for the generated DNSRecord                  | no                          |
 | `cloudflare-operator.io/ip-ref`   | Reference to an IP object | e.g. `my-external-ip`                                       | yes if `content` is not set |
 | `cloudflare-operator.io/proxied`  | `true` or `false`         | Whether the record should be proxied                        | no                          |
 | `cloudflare-operator.io/ttl`      | `1` or `60` - `86400`     | TTL of the DNS record                                       | no                          |
@@ -32,6 +33,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
+    cloudflare-operator.io/account-ref: account-sample
     cloudflare-operator.io/type: CNAME
     cloudflare-operator.io/content: example.com
   name: blog
@@ -51,6 +53,8 @@ spec:
 ```
 
 This will create a DNS record for the host `blog.example.com` with the content `example.com` and the type `CNAME`.
+
+If `cloudflare-operator.io/account-ref` is set, the generated DNSRecord will use that Account. When the matching Zone also has `spec.accountRef.name`, both references must point to the same Account.
 
 {{% alert color="info" %}}
 **Note**\

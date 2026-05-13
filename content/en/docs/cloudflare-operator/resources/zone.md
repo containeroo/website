@@ -10,6 +10,8 @@ Zone resources represent Cloudflare zones and are used to tell cloudflare-operat
 
 Learn more about the zone resource in the [getting started guide](/docs/cloudflare-operator/get_started).
 
+If you have more than one Account resource, set `spec.accountRef.name` on each Zone so the operator knows which Cloudflare credentials to use. When only one Account exists in the cluster, `accountRef` can be omitted.
+
 ## Prevent Certain DNS Records From Being Deleted When Zone Prune Is Enabled
 
 Prior to **v1.7.0**, `cloudflare-operator` had a fixed set of DNS records that were always ignored when `Zone` prune was enabled. These included records required for ACME certificate validation and Cloudflare-specific TXT records. Users could not modify this behavior.

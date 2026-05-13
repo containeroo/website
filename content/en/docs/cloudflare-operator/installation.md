@@ -65,7 +65,7 @@ helm upgrade --install \
   cloudflare-operator containeroo/cloudflare-operator \
   --namespace cloudflare-operator \
   --create-namespace \
-  --version v${VERSION}
+  --version ${VERSION}
 ```
 
 #### Customized installation
